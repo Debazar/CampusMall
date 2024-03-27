@@ -28,7 +28,7 @@ function Heading(){
         <span className="nav_itemTwo">Shop</span>
       </div>
       <div className="nav_item nav_itemR">
-        <ShoppingCartOutlinedIcon className="itemCart" fontSize='large'/>
+        <ShoppingCartOutlinedIcon />
         <span className="nav_itemtwo nav_cartCount">0</span>
       </div>
     </div>
