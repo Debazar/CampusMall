@@ -3,20 +3,29 @@ import Heading from "../heading/heading";
 import "./Checkout.css";
 import Checkoutproduct from "./Checkoutproduct";
 import Subtotal from "./Subtotal";
+import { UseStateValue } from "../StateProvider";
 
 
 
 function Checkout(){
+  const [{basket}, dispatch] = UseStateValue();
   return (<div>
     <Heading/>
     <div className="checkout">
 
       <div className="checkoutLeft">
 
-        <img src="https://e0.pxfuel.com/wallpapers/850/829/desktop-wallpaper-e-commerce-web-designing-development-company-e-commerce-thumbnail.jpg"   alt="advertisement"/>
+        <img src="https://i.ebayimg.com/00/s/NTgxWDE2MDA=/z/8goAAOSwWmtmHkC7/$_57.JPG"  alt="advertisement"/>
         <div className="checkoutHeading">
            <h2>Your shopping Cart</h2>
-           <Checkoutproduct />
+           {basket.map(item=>(  <Checkoutproduct 
+             title = {item.title}
+             id = {item.id}
+             image = {item.image}
+             price = {item.price}
+             rating = {item.rating}
+           />))}
+         
         </div>
       </div>
 

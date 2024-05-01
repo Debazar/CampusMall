@@ -1,21 +1,30 @@
 import React from "react";
 import "./Checkoutproduct.css";
+import { UseStateValue } from "../StateProvider";
+import { type } from "@testing-library/user-event/dist/type";
 
-function Checkoutproduct(){
+function Checkoutproduct(props){
+  const [{basket}, dispatch] = UseStateValue();
+  const removeFromBasket = ()=>{
+    dispatch({
+      type: "REMOVE_FROM_BASKET",
+      id : props.id
+    })
+  }
   return(
     <div className="checkoutProduct">
-    <img src="https://m.media-amazon.com/images/I/61vef8697OL._AC_UL640_FMwebp_QL65_.jpg"  alt="item in the basket"/> 
+    <img src={props.image}  alt="item in the basket"/> 
 
-    <div className="checoutproductInfo">
-      <p className="checkoutproductTitle">"JanSport Backpack with 15-inch Laptop Sleeve, Navy - Large Computer Bag Rucksack with 2 Compartments, Ergonomic Strap"</p>
-      <p className="checkoutproductPrice">
+    <div className="checkoutProductInfo">
+      <p className="checkoutProductTitle">{props.title}</p>
+      <p className="checkoutProductPrice">
         <small>$</small>
-        <strong>20</strong>
+        <strong>{props.price}</strong>
       </p>
-      <div className="checkoutproductRating">
-         ⭐️⭐️⭐️⭐️⭐️
+      <div className="checkoutProductRating">
+         {props.rating}
       </div>
-      <button>Remove Item</button>
+      <button onClick={removeFromBasket}>Remove Item</button>
 
     </div>
 

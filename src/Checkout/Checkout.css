@@ -5,9 +5,10 @@
   height: max-content;
 }
 
-.checkout_img{
-  width: 100%;
+img{
+  width: 98%;
   margin-bottom: 10px;
+  height: 40%;
 }
 
 .checkoutHeading{

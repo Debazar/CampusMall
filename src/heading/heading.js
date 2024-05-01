@@ -4,8 +4,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import "./heading.css";
 import { Link } from "react-router-dom";
+import { UseStateValue } from '../StateProvider';
+
 
 function Heading(){
+
+  const [{basket}, dispatch]=  UseStateValue();
+   
   return(
   <div className="header">
     <Link to= "/" style={{textDecoration: "none"}}>
@@ -34,7 +39,7 @@ function Heading(){
       <Link to = "/checkout" style={{textDecoration: "none"}}>
       <div className="nav_item nav_itemR">
         <ShoppingCartOutlinedIcon />
-        <span className="nav_itemtwo nav_cartCount">0</span>
+        <span className="nav_itemtwo nav_cartCount">{basket.length}</span>
        
       </div>
       </Link>

@@ -1,7 +1,27 @@
 import React from "react";
 import "./product.css"
+import { UseStateValue } from "../StateProvider";
+import { type } from "@testing-library/user-event/dist/type";
 
 function Product(props){
+
+  const [state,dispatch] = UseStateValue();
+
+  const addToBasket = ()=>{
+    dispatch(
+      {
+        type: "ADD_TO_BASKET",
+        item: {
+           id: props.id,
+           title: props.title,
+           image : props.img,
+           price : props.price,
+           rating: props.rating,
+        },
+      }
+    );
+  };
+
   return(
       <div>
         <div className="product">
@@ -14,7 +34,7 @@ function Product(props){
 
           <img src={props.img} />
 
-           <button>Add To Cart</button>
+           <button onClick={addToBasket}>Add To Cart</button>
         </div>
       </div>
   );
