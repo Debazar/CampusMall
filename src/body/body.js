@@ -6,6 +6,7 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 
+
 function Body(){
   return(
     <div className="body_page">
