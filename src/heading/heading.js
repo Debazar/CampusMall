@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { UseStateValue } from '../StateProvider';
 
 
+
 function Heading(){
 
   const [{basket}, dispatch]=  UseStateValue();
@@ -27,10 +28,14 @@ function Heading(){
 
 
     <div className="header_nav">
+      
+      <Link to="/login" style={{textDecoration: "none"}} >
       <div className="nav_item">
         <span className="nav_itemOne">Hello Guest</span>
         <span className="nav_itemTwo">Sign in</span>
       </div>
+      </Link>
+
       <div className="nav_item">
         <span className="nav_itemOne">Your</span>
         <span className="nav_itemTwo">Shop</span>
